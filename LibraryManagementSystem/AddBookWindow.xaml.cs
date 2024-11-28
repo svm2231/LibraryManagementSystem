@@ -1,27 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LibraryManagementSystem
 {
-    /// <summary>
-    /// Interaction logic for AddBookWindow.xaml
-    /// </summary>
     public partial class AddBookWindow : Window
     {
         public AddBookWindow()
         {
             InitializeComponent();
+        }
+
+        // Method to handle Add Book button click
+        private void AddBook_Click(object sender, RoutedEventArgs e)
+        {
+            // Validate input
+            if (string.IsNullOrEmpty(txtBookTitle.Text) || string.IsNullOrEmpty(txtAuthor.Text) ||
+                string.IsNullOrEmpty(txtISBN.Text) || string.IsNullOrEmpty(txtPublicationYear.Text) || string.IsNullOrEmpty(txtStockQuantity.Text) || string.IsNullOrEmpty(txtGenre.Text))
+            {
+                MessageBox.Show("Please fill all the fields.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Create the insert query
+            string query = "BEGIN insert_book(:p_title, :p_authorid, :p_isbn, :p_published_year,:p_Genre, :p_copiesavailable); END;";
+
+
+
+            try
+            {
+                // Establish a connection to the Oracle database
+                using (OracleConnection connection = DatabaseHelper.GetConnection())
+                {
+                    // Open the connection
+                    connection.Open();
+
+                    // Create a command and bind parameters to avoid SQL injection
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add("p_title", OracleDbType.Varchar2).Value = txtBookTitle.Text;
+                        command.Parameters.Add("p_authorid", OracleDbType.Int32).Value = int.Parse(txtAuthor.Text);
+                        command.Parameters.Add("p_isbn", OracleDbType.Varchar2).Value = txtISBN.Text;
+                        command.Parameters.Add("p_publishedyear", OracleDbType.Int32).Value = int.Parse(txtPublicationYear.Text);
+                        command.Parameters.Add("p_genre", OracleDbType.Varchar2).Value = txtGenre.ToString();
+                        command.Parameters.Add("p_copiesavailable", OracleDbType.Int32).Value = int.Parse(txtStockQuantity.Text);
+
+                        // Execute the query
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Book added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+
+                    }
+                }
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter valid numeric values for Author ID, Publication Year, and Stock Quantity.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        // Clear input fields after successful book addition
+        private void ClearFields()
+        {
+            txtBookTitle.Clear();
+            txtAuthor.Clear();
+            txtISBN.Clear();
+            txtPublicationYear.Clear();
+            txtStockQuantity.Clear();
+            txtGenre.Clear();
         }
     }
 }

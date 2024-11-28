@@ -27,7 +27,10 @@ namespace LibraryManagementSystem
         private void ManageBooks_Click(object sender, RoutedEventArgs e)
         {
             // Here you would open a new window for managing books (e.g., BooksManagementWindow)
-            MessageBox.Show("Managing Books...");
+            ManageBooks manageBook=new ManageBooks();
+            manageBook.Show();
+            this.Close();
+            
         }
 
         // Handle Manage Users Click

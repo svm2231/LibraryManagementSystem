@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="AddBookWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel Margin="20">
+            <TextBlock Text="Book Title" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtBookTitle" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Author" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtAuthor" Margin="0,0,0,10"/>
+
+            <TextBlock Text="ISBN" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtISBN" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Publication Year" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtPublicationYear" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Genre" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtGenre" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Stock Quantity" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtStockQuantity" Margin="0,0,0,10"/>
+
+            <Button Content="Add Book" Click="AddBook_Click" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Window>
