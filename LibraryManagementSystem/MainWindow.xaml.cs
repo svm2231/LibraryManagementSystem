@@ -7,6 +7,7 @@ namespace LibraryManagementSystem
         public MainWindow()
         {
             InitializeComponent();
+            TestDatabaseConnection();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -26,6 +27,22 @@ namespace LibraryManagementSystem
             {
                 // Display error message for invalid login
                 MessageBox.Show("Invalid credentials", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TestDatabaseConnection()
+        {
+            try
+            {
+                using (var connection = DatabaseHelper.GetConnection())
+                {
+                    connection.Open();
+                    MessageBox.Show("Database connection successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Database connection failed: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -26,6 +26,7 @@ namespace LibraryManagementSystem
         {
             AddBookWindow addBookWindow = new AddBookWindow();
             addBookWindow.Show();
+            this.Close();
         }
 
         // Open Update Book Window
