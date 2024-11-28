@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryManagementSystem"
         mc:Ignorable="d"
-        Title="AddBookWindow" Height="450" Width="800">
+        Title="AddBookWindow" Height="600" Width="800">
     <Grid>
         <StackPanel Margin="20">
             <TextBlock Text="Book Title" Margin="0,0,0,5"/>
@@ -26,7 +26,11 @@
             <TextBlock Text="Stock Quantity" Margin="0,0,0,5"/>
             <TextBox x:Name="txtStockQuantity" Margin="0,0,0,10"/>
 
-            <Button Content="Add Book" Click="AddBook_Click" HorizontalAlignment="Center"/>
+            <Button Content="Add Book" Click="AddBook_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+
+            <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+
+            <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
         </StackPanel>
     </Grid>
 </Window>

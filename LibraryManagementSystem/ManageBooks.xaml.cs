@@ -62,6 +62,7 @@ namespace LibraryManagementSystem
         {
             IssueBookWindow issueBookWindow = new IssueBookWindow();
             issueBookWindow.Show();
+            this.Close();
         }
 
         // Open Submit Book Window
@@ -69,6 +70,12 @@ namespace LibraryManagementSystem
         {
             SubmitBookWindow submitBookWindow = new SubmitBookWindow();
             submitBookWindow.Show();
+        }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
         }
     }
 }

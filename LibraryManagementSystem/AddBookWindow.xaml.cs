@@ -78,5 +78,18 @@ namespace LibraryManagementSystem
             txtStockQuantity.Clear();
             txtGenre.Clear();
         }
+        private void Back_Click(object sender, EventArgs e)
+        {
+            ManageBooks manageBooks = new ManageBooks();
+            manageBooks.Show();
+            this.Close();
+        }
+        private void Menu_Click(object sender, EventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+        }
+        
     }
 }

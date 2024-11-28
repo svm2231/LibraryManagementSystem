@@ -37,7 +37,9 @@ namespace LibraryManagementSystem
         private void ManageUsers_Click(object sender, RoutedEventArgs e)
         {
             // Here you would open a new window for managing users (e.g., UsersManagementWindow)
-            MessageBox.Show("Managing Users...");
+            ManageUser users=new ManageUser();
+            users.Show();
+            this.Close();
         }
 
         // Handle Manage Transactions Click
