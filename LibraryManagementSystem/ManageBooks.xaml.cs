@@ -70,6 +70,7 @@ namespace LibraryManagementSystem
         {
             SubmitBookWindow submitBookWindow = new SubmitBookWindow();
             submitBookWindow.Show();
+            this.Close();
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {

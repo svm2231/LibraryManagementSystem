@@ -95,5 +95,21 @@ namespace LibraryManagementSystem
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            ManageUser manageUser = new ManageUser();
+            manageUser.Show();
+            this.Close();
+        }
+        private void Menu_Click(object sender, EventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+        }
     }
-}
+
+    
+
+    }

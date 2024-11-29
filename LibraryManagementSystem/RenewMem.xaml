@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Membership Renewal" Height="400" Width="400">
+        Title="Membership Renewal" Height="600" Width="400">
     <Grid>
         <md:Card Margin="20">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
@@ -20,7 +20,11 @@
                 <TextBox Name="txtMembershipEnd" Width="200" HorizontalAlignment="Center" IsReadOnly="True"/>
 
                 <Button Content="Renew Membership" Click="RenewMembership" HorizontalAlignment="Center" Margin="10"/>
+                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,30,0,30"/>
+
+                <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
             </StackPanel>
         </md:Card>
     </Grid>
 </Window>
+

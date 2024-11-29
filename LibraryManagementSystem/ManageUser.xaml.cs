@@ -42,5 +42,11 @@ namespace LibraryManagementSystem
         {
 
         }
+        private void Menu_Click(object sender, EventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+        }
     }
 }
