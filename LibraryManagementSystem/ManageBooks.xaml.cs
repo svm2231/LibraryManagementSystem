@@ -34,6 +34,7 @@ namespace LibraryManagementSystem
         {
             UpdateBookWindow updateBookWindow = new UpdateBookWindow();
             updateBookWindow.Show();
+            this.Close();
         }
 
         // Open Delete Book Window
@@ -41,6 +42,7 @@ namespace LibraryManagementSystem
         {
             DeleteBook deleteBookWindow = new DeleteBook();
             deleteBookWindow.Show();
+            this.Close();
         }
 
         // Open Update Book Stock Window
@@ -48,6 +50,7 @@ namespace LibraryManagementSystem
         {
             updateStockWindow updateStockWindow = new updateStockWindow();
             updateStockWindow.Show();
+            this.Close();
         }
 
         // Open Generate Report Window
@@ -55,6 +58,7 @@ namespace LibraryManagementSystem
         {
             ReportWindow reportWindow = new ReportWindow();
             reportWindow.Show();
+            this.Close();
         }
 
         // Open Issue Book Window

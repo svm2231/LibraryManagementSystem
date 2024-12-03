@@ -51,16 +51,13 @@
                     <TextBlock Name="txtDueDate" Grid.Row="1" Grid.Column="5" Margin="5" HorizontalAlignment="Center" />
                 </Grid>
 
-
-
-
                 <Button Content="Submit Book" Click="submitBook" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
 
                 <Button Content="Submit With Fine" Click="submitFine" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
-
                 <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
 
                 <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
+
             </StackPanel>
         </md:Card>
     </Grid>

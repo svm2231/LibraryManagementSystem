@@ -42,14 +42,14 @@ namespace LibraryManagementSystem
                         command.Parameters.Add("p_authorid", OracleDbType.Int32).Value = int.Parse(txtAuthor.Text);
                         command.Parameters.Add("p_isbn", OracleDbType.Varchar2).Value = txtISBN.Text;
                         command.Parameters.Add("p_publishedyear", OracleDbType.Int32).Value = int.Parse(txtPublicationYear.Text);
-                        command.Parameters.Add("p_genre", OracleDbType.Varchar2).Value = txtGenre.ToString();
+                        command.Parameters.Add("p_genre", OracleDbType.Varchar2).Value = txtGenre.Text.ToString();
                         command.Parameters.Add("p_copiesavailable", OracleDbType.Int32).Value = int.Parse(txtStockQuantity.Text);
 
                         // Execute the query
                         command.ExecuteNonQuery();
 
                         MessageBox.Show("Book added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                        ClearFields();
 
                     }
                 }

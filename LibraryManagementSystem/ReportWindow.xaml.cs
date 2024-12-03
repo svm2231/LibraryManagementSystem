@@ -23,5 +23,39 @@ namespace LibraryManagementSystem
         {
             InitializeComponent();
         }
+
+        private void CheckStock(object sender, RoutedEventArgs e)
+        {
+            CheckBookStock checkBookStock = new CheckBookStock();
+            checkBookStock.Show();
+            this.Close();
+        }
+        private void TopWeek(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void TopMonth(object sender,RoutedEventArgs e)
+        {
+
+        }
+
+        private void TopYear(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            ManageBooks manageBooks = new();
+            manageBooks.Show();
+            this.Close();
+        }
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            AdminDashboard adminDashboard = new();
+            adminDashboard.Show();
+            this.Close();
+
+        }
     }
 }

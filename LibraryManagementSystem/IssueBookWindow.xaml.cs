@@ -40,18 +40,22 @@ namespace LibraryManagementSystem
                 using (OracleConnection connection = DatabaseHelper.GetConnection())
                 {
                     connection.Open();
-
+       
 
                     using (OracleCommand command = new OracleCommand(query, connection))
+
                     {
-                        command.Parameters.Add("p_bookID", OracleDbType.Varchar2).Value = int.Parse(txtBookID.Text);
-                        command.Parameters.Add("p_memberID", OracleDbType.Varchar2).Value = int.Parse(txtMemberID.Text);
 
+
+                        command.Parameters.Add(":p_bookID", OracleDbType.Varchar2).Value = int.Parse(txtBookID.Text);
+                        command.Parameters.Add(":p_memberID", OracleDbType.Varchar2).Value = int.Parse(txtMemberID.Text);
+                        
                         OracleDataAdapter adapter = new OracleDataAdapter(command);
-
+                         
                         command.ExecuteNonQuery();
 
                         MessageBox.Show("Book Issued successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ClearFields();
                     }
                 }
 
@@ -60,7 +64,7 @@ namespace LibraryManagementSystem
 
             catch (OracleException ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"An error occurred 2: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (FormatException)
             {
@@ -82,6 +86,11 @@ namespace LibraryManagementSystem
             AdminDashboard adminDashboard = new AdminDashboard();
             adminDashboard.Show();
             this.Close();
+        }
+        private void ClearFields()
+        {
+            txtBookID.Clear();
+            txtMemberID.Clear();
         }
     }
 }
