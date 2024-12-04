@@ -8,15 +8,15 @@
         Title="IssueBookWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Margin="20">
-            <TextBlock Text="Member Id" Margin="0,0,0,5"/>
-            <TextBox x:Name="txtMemberID" Margin="0,0,0,10"/>
+            <TextBlock Text="Member Id" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtMemberID" Margin="0,0,0,10" HorizontalAlignment="Center" Width="250"/>
 
-            <TextBlock Text="Book Id" Margin="0,0,0,5"/>
-            <TextBox x:Name="txtBookID" Margin="0,0,0,10"/>
+            <TextBlock Text="Book Id" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtBookID" Margin="0,0,0,10" HorizontalAlignment="Center" Width="250"/>
 
-            <Button Content="Issue Book" Click="IssueBook_Click" HorizontalAlignment="Center" Margin="0,0,0,20" />
-            <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center"/>
+            <Button Content="Issue Book" Click="IssueBook_Click" HorizontalAlignment="Center" Margin="0,20,0,20" Width="120" />
+            <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="120"/>
+            <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Width="120"/>
         </StackPanel>
 
     </Grid>

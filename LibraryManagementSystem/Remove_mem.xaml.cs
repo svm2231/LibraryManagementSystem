@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,24 +17,24 @@ using Oracle.ManagedDataAccess.Client;
 namespace LibraryManagementSystem
 {
     /// <summary>
-    /// Interaction logic for updateStockWindow.xaml
+    /// Interaction logic for Remove_mem.xaml
     /// </summary>
-    public partial class updateStockWindow : Window
+    public partial class Remove_mem : Window
     {
-        public updateStockWindow()
+        public Remove_mem()
         {
             InitializeComponent();
         }
 
-        private void CheckStock(object sender, RoutedEventArgs e)
+        private void CheckBooksDetails(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBookID.Text))
+            if (string.IsNullOrEmpty(txtMemberID.Text))
             {
-                MessageBox.Show("Please enter a Book ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please enter a Details.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            string query = "SELECT bookid, title, to_char(duedate,'YYYY-MM-DD') AS DUEDATE,fine FROM shiv2_borrow b JOIN shiv2_books bk USING(bookid) WHERE memberid=:p_memID";
 
-            string query = "SELECT title,copiesavailable FROM shiv2_books WHERE bookid=:p_bookID";
 
             try
             {
@@ -43,23 +44,28 @@ namespace LibraryManagementSystem
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         // Add the Member ID parameter to the query
-                        command.Parameters.Add(":p_bookID", OracleDbType.Int32).Value = int.Parse(txtBookID.Text);
+                        command.Parameters.Add(":p_memID", OracleDbType.Varchar2).Value = int.Parse(txtMemberID.Text);
 
-                        // Execute the query and read the results
+
                         using (OracleDataReader reader = command.ExecuteReader())
                         {
-                            if (reader.Read())
+                            OracleDataAdapter adapter = new OracleDataAdapter(command);
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            if (dataTable.Rows.Count > 0)
                             {
-                                // Set the Full Name and Membership End Date in the text boxes
-                                txtTitle.Text = reader["title"].ToString();
-                                txtStock.Text = reader["copiesavailable"].ToString();
+                                BooksDataGrid.ItemsSource = dataTable.DefaultView;
+                                BooksDataGrid.Visibility = Visibility.Visible;
                             }
                             else
                             {
-                                MessageBox.Show("Book not found.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                MessageBox.Show("No books found for this member.", "Not Found", MessageBoxButton.OK, MessageBoxImage.Information);
+                                BooksDataGrid.Visibility = Visibility.Collapsed;
                             }
                         }
                     }
+
                 }
             }
             catch (Exception ex)
@@ -67,43 +73,31 @@ namespace LibraryManagementSystem
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        private void UpdateStock(object sender, RoutedEventArgs e)
+        private void RemoveMemb(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtAddStock.Text))
-            {
-                MessageBox.Show("Please enter a Book ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            string query = "UPDATE shiv2_books SET copiesavailable=copiesavailable+:p_quantity WHERE bookid=:p_bookID";
-
+            string query = "DELETE SHIV2_MEMBERS WHERE MEMBERID=:P_MEMID";
             try
             {
-                using (OracleConnection connection = DatabaseHelper.GetConnection())
+                using(OracleConnection connection = DatabaseHelper.GetConnection())
                 {
                     connection.Open();
-                    using (OracleCommand command = new OracleCommand(query, connection))
+
+                    using(OracleCommand command = new OracleCommand(query, connection))
                     {
-                        command.Parameters.Add(":p_quantity", OracleDbType.Int32).Value = int.Parse(txtAddStock.Text);
-                        command.Parameters.Add(":p_bookID", OracleDbType.Int32).Value = int.Parse(txtBookID.Text);
-
+                        command.Parameters.Add(":p_memID", OracleDbType.Int32).Value = int.Parse(txtMemberID.Text);
                         command.ExecuteNonQuery();
-                        MessageBox.Show("Stock Updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
-
+                        MessageBox.Show("Member Deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
         }
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            ManageBooks reportWindow = new();
+            ManageUser reportWindow = new ();
             reportWindow.Show();
             this.Close();
         }
@@ -115,7 +109,4 @@ namespace LibraryManagementSystem
 
         }
     }
-    
-
-    
 }

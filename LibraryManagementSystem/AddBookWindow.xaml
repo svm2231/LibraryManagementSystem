@@ -26,11 +26,11 @@
             <TextBlock Text="Stock Quantity" Margin="0,0,0,5"/>
             <TextBox x:Name="txtStockQuantity" Margin="0,0,0,10"/>
 
-            <Button Content="Add Book" Click="AddBook_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+            <Button Content="Add Book" Click="AddBook_Click" HorizontalAlignment="Center" Margin="0,0,0,30" Width="120"/>
 
-            <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+            <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,30" Width="120"/>
 
-            <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+            <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,30" Width="120"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -30,7 +30,9 @@ namespace LibraryManagementSystem
         }
         public void RemoveMem_Click(object sender, RoutedEventArgs e)
         {
-
+            Remove_mem remove_Mem = new();
+            remove_Mem.Show();
+            this.Close();
         }
         public void RenewMem_Click(object sender,RoutedEventArgs e)
         {

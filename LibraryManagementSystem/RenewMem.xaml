@@ -11,18 +11,18 @@
                 <TextBlock Text="Member ID" HorizontalAlignment="Center"/>
                 <TextBox Name="txtMemberID" Width="200" HorizontalAlignment="Center"/>
 
-                <Button Content="Check" Click="CheckMemberDetails" HorizontalAlignment="Center" Margin="10"/>
+                <Button Content="Check" Click="CheckMemberDetails" HorizontalAlignment="Center" Margin="0,20,0,20"  Width="180"/>
 
                 <TextBlock Text="Full Name:" HorizontalAlignment="Center"/>
-                <TextBox Name="txtFullName" Width="200" HorizontalAlignment="Center" IsReadOnly="True"/>
+                <TextBox Name="txtFullName" Width="200" HorizontalAlignment="Center" IsReadOnly="True" Margin="0,0,0,10"/>
 
                 <TextBlock Text="Membership End:" HorizontalAlignment="Center"/>
                 <TextBox Name="txtMembershipEnd" Width="200" HorizontalAlignment="Center" IsReadOnly="True"/>
 
-                <Button Content="Renew Membership" Click="RenewMembership" HorizontalAlignment="Center" Margin="10"/>
-                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,30,0,30"/>
+                <Button Content="Renew Membership" Click="RenewMembership" HorizontalAlignment="Center" Margin="0,20,0,0" Width="180"/>
+                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,30,0,30"  Width="180"/>
 
-                <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+                <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,30" Width="180"/>
             </StackPanel>
         </md:Card>
     </Grid>

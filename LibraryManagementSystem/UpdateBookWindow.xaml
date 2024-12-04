@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="UpdateBookWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
+
+        <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
     </Grid>
 </Window>

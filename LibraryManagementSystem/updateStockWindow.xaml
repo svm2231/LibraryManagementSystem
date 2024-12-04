@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryManagementSystem"
         mc:Ignorable="d"
-        Title="updateStockWindow" Height="450" Width="800">
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="updateStockWindow" Height="700" Width="800">
     <Grid>
         
+        <md:Card Margin="20">
+            <StackPanel>
+
+                <TextBlock Text="Update Stock" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
+
+                <TextBlock Text="Book ID" HorizontalAlignment="Center"/>
+                <TextBox Name="txtBookID" Width="200" HorizontalAlignment="Center"/>
+
+                <Button Content="Check" Click="CheckStock" HorizontalAlignment="Center" Margin="20" Width="145"/>
+
+                <TextBlock Text="Title" HorizontalAlignment="Center"/>
+                <TextBox Name="txtTitle" Width="200" HorizontalAlignment="Center" IsReadOnly="True" />
+
+                <TextBlock Text="Stock" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                <TextBox Name="txtStock" Width="200" HorizontalAlignment="Center" IsReadOnly="True" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Number of Copies" HorizontalAlignment="Center"/>
+                <TextBox Name="txtAddStock" Width="200" HorizontalAlignment="Center"/>
+
+                <Button Content="Update" Click="UpdateStock" HorizontalAlignment="Center" Margin="20" Width="145"/>
+
+                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
+
+                <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
+            </StackPanel>
+        </md:Card>
+
     </Grid>
 </Window>

@@ -15,18 +15,18 @@
                 <TextBlock Text="Book ID" HorizontalAlignment="Center"/>
                 <TextBox Name="txtBookID" Width="200" HorizontalAlignment="Center"/>
 
-                <Button Content="Check" Click="CheckBookDetails" HorizontalAlignment="Center" Margin="10"/>
+                <Button Content="Check" Click="CheckBookDetails" HorizontalAlignment="Center" Margin="30" Width="120"/>
 
                 <TextBlock Text="Title" HorizontalAlignment="Center"/>
-                <TextBox Name="txtTitle" Width="200" HorizontalAlignment="Center" IsReadOnly="True"/>
+                <TextBox Name="txtTitle" Width="200" HorizontalAlignment="Center" IsReadOnly="True" />
 
                 <TextBlock Text="Author" HorizontalAlignment="Center"/>
                 <TextBox Name="txtAuthor" Width="200" HorizontalAlignment="Center" IsReadOnly="True"/>
-                
-                <Button Content="Delete Book" Click="DeleteBooks" HorizontalAlignment="Center" Margin="10"/>
-                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,30,0,30"/>
 
-                <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+                <Button Content="Delete Book" Click="DeleteBooks" HorizontalAlignment="Center" Margin="30" Width="120"/>
+                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,30" Width="120"/>
+
+                <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,30" Width="120"/>
             </StackPanel>
         </md:Card>
     </Grid>

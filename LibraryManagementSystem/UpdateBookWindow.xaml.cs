@@ -23,5 +23,18 @@ namespace LibraryManagementSystem
         {
             InitializeComponent();
         }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            ManageBooks reportWindow = new ();
+            reportWindow.Show();
+            this.Close();
+        }
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            AdminDashboard adminDashboard = new AdminDashboard();
+            adminDashboard.Show();
+            this.Close();
+
+        }
     }
 }

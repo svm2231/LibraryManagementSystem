@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,26 +11,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Media.TextFormatting;
 using System.Windows.Shapes;
 using Oracle.ManagedDataAccess.Client;
-using System.Xml.Linq;
-using System.Data;
-
 
 namespace LibraryManagementSystem
 {
     /// <summary>
-    /// Interaction logic for CheckBookStock.xaml
+    /// Interaction logic for TrackBook.xaml
     /// </summary>
-    public partial class CheckBookStock : Window
+    public partial class TrackBook : Window
     {
-        public CheckBookStock()
+        public TrackBook()
         {
             InitializeComponent();
+        }
+        private void TrackBooksDetails(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBookID.Text))
+            {
+                MessageBox.Show("Please enter a Details.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
 
-            string query = "SELECT bookID,title,authorid,isbn,publishedyear,Genre,CopiesAvailable FROM shiv2_books WHERE copiesavailable<3";
+            string query = "SELECT memberid, firstname ||' '|| lastname as Name, TO_CHAR(duedate,'YYYY-MM-DD') AS due_date FROM shiv2_borrow br JOIN shiv2_members m USING (memberid) WHERE bookid=:p_bookID";
 
 
             try
@@ -40,7 +45,8 @@ namespace LibraryManagementSystem
                     using (OracleCommand command = new OracleCommand(query, connection))
                     {
                         // Add the Member ID parameter to the query
-                        
+                        command.Parameters.Add(":p_bookID", OracleDbType.Varchar2).Value = int.Parse(txtBookID.Text);
+
 
                         using (OracleDataReader reader = command.ExecuteReader())
                         {
@@ -50,13 +56,13 @@ namespace LibraryManagementSystem
 
                             if (dataTable.Rows.Count > 0)
                             {
-                                OutOfStockBooksDataGrid.ItemsSource = dataTable.DefaultView;
-                                OutOfStockBooksDataGrid.Visibility = Visibility.Visible;
+                                BooksDataGrid.ItemsSource = dataTable.DefaultView;
+                                BooksDataGrid.Visibility = Visibility.Visible;
                             }
                             else
                             {
-                                MessageBox.Show("No Out of Stock.", "Not Found", MessageBoxButton.OK, MessageBoxImage.Information);
-                                OutOfStockBooksDataGrid.Visibility = Visibility.Collapsed;
+                                MessageBox.Show("Book Not Borrowed.", "Not Found", MessageBoxButton.OK, MessageBoxImage.Information);
+                                BooksDataGrid.Visibility = Visibility.Collapsed;
                             }
                         }
                     }
@@ -69,8 +75,6 @@ namespace LibraryManagementSystem
             }
 
         }
-
-
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             ReportWindow reportWindow = new ReportWindow();
@@ -82,8 +86,7 @@ namespace LibraryManagementSystem
             AdminDashboard adminDashboard = new AdminDashboard();
             adminDashboard.Show();
             this.Close();
-           
-        }
 
+        }
     }
 }

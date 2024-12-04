@@ -12,7 +12,7 @@
             <!-- Button to Issue Book -->
             <Button Content="Check Out of Stock Books" Width="200" Height="50" Margin="10" Click="CheckStock"/>
 
-            <Button Content="Top Book of Week" Width="200" Height="50" Margin="10" Click="TopWeek"/>
+            <Button Content="Track Book" Width="200" Height="50" Margin="10" Click="TrackBook"/>
 
             <!-- Button to Add Book -->
             <Button Content="Top Book of Month" Width="200" Height="50" Margin="10" Click="TopMonth"/>

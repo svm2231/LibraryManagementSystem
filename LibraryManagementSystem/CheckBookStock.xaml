@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Submit Book" Height="795" Width="500">
+        Title="Submit Book" Height="795" Width="1000">
     <Grid>
         <md:Card Margin="20">
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
@@ -15,7 +15,7 @@
                 </DataGrid>
 
                 <!-- Button to Fetch Data -->
-                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
+                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,20,0,20" Width="145"/>
 
                 <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
 

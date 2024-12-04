@@ -30,8 +30,10 @@ namespace LibraryManagementSystem
             checkBookStock.Show();
             this.Close();
         }
-        private void TopWeek(object sender, RoutedEventArgs e)
+        private void TrackBook(object sender, RoutedEventArgs e)
         {
+            TrackBook trackBook = new();
+            trackBook.Show();
             this.Close();
         }
         private void TopMonth(object sender,RoutedEventArgs e)
