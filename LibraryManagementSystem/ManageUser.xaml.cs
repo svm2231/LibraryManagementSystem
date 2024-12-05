@@ -42,7 +42,9 @@ namespace LibraryManagementSystem
         }
         public void IssueCheck_Click(object Sender,RoutedEventArgs e)
         {
-
+            MemDetails memDetails = new MemDetails();   
+            memDetails.Show();
+            this.Close();
         }
         private void Menu_Click(object sender, EventArgs e)
         {

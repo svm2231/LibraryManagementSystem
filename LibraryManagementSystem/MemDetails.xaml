@@ -1,0 +1,67 @@
+﻿<Window x:Class="LibraryManagementSystem.MemDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryManagementSystem"
+        mc:Ignorable="d"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MemDetails" Height="1000" Width="800">
+    <Grid Margin="0,0,0,-88">
+        <md:Card Margin="20,20,20,-92">
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Width="404" Height="1000" Margin="0,93,0,0" >
+                <TextBlock Text="Submit Book" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
+
+                <TextBlock Text="Member ID" HorizontalAlignment="Center"/>
+                <TextBox Name="txtMemberID" Width="200" HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Total Fine:" HorizontalAlignment="Center"/>
+                <TextBox Name="txtFine" Width="200" HorizontalAlignment="Center" IsReadOnly="True" Margin="0,0,0,10"/>
+
+
+                <Button Content="Check" Click="CheckSubmitDetails" HorizontalAlignment="Center" Margin="20" Width="145"/>
+
+
+                <!-- add row here -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <!-- First DataGrid -->
+                        <RowDefinition Height="Auto" />
+                        <!-- Second DataGrid -->
+                    </Grid.RowDefinitions>
+
+                    <DataGrid   Name="MemDataGrid" 
+                                AutoGenerateColumns="True" 
+                                Visibility="Collapsed" 
+                                HorizontalAlignment="Stretch" 
+                                Margin="10" 
+                                Height="70" 
+                                Width="600" 
+                                Grid.Row="0" />
+
+                    <DataGrid   Name="DetailsDataGrid" 
+                                AutoGenerateColumns="True" 
+                                Visibility="Collapsed" 
+                                HorizontalAlignment="Stretch" 
+                                Margin="10" 
+                                Height="200" 
+                                Width="Auto" 
+                                Grid.Row="1" />
+                </Grid>
+
+
+
+
+
+                <Button Content="Pay Fine" Click="payFine" HorizontalAlignment="Center" Margin="0,20,0,20" Width="145"/>
+
+                <Button Content="Back" Click="Back_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
+  
+
+                <Button Content="Main Menu" Click="Menu_Click" HorizontalAlignment="Center" Margin="0,0,0,20" Width="145"/>
+
+            </StackPanel>
+        </md:Card>
+    </Grid>
+</Window>
