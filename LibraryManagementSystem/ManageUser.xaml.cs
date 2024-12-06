@@ -26,6 +26,10 @@ namespace LibraryManagementSystem
 
         public void AddMem_Click(object sender, RoutedEventArgs e)
         {
+            addUser AddUser = new();
+            AddUser.Show();
+            this.Close();
+
 
         }
         public void RemoveMem_Click(object sender, RoutedEventArgs e)

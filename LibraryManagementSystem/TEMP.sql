@@ -802,3 +802,21 @@ DELETE SHIV2_MEMBERS WHERE MEMBERID=34;
 
 ALTER TABLE shiv2_TRANSACTION
 DROP CONSTRAINT SYS_C00739902;
+
+
+CREATE OR REPLACE PROCEDURE InsertMem
+(
+    p_memID IN NUMBER,
+    p_first IN VARCHAR2,
+    p_last IN VARCHAR2,
+    p_add IN VARCHAR2,
+    p_phn IN VARCHAR2,
+    p_email IN VARCHAR
+)
+AS
+BEGIN
+    
+    INSERT INTO shiv2_members(memberid,firstname,lastname,address,phonenumber,email,membershipdate,expirydate)
+    VALUES(p_memID,p_first,p_last,p_add,p_phn,p_email,sysdate,add_months(sysdate,12);
+END;
+/

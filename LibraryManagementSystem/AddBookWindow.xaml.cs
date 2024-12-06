@@ -54,14 +54,7 @@ namespace LibraryManagementSystem
                     }
                 }
             }
-            catch (OracleException ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Please enter valid numeric values for Author ID, Publication Year, and Stock Quantity.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+          
             catch (Exception ex)
             {
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);

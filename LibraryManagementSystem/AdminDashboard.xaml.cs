@@ -46,7 +46,9 @@ namespace LibraryManagementSystem
         private void ManageTransactions_Click(object sender, RoutedEventArgs e)
         {
             // Here you would open a new window for managing transactions (e.g., TransactionsManagementWindow)
-            MessageBox.Show("Managing Transactions...");
+            Transaction transaction = new();
+            transaction.Show();
+            this.Close();
         }
 
         // Handle Logout Click

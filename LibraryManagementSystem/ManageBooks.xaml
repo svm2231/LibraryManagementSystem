@@ -22,7 +22,7 @@
 
 
             <!-- Button to Update Book -->
-            <Button Content="Update Book Details" Width="200" Height="50" Margin="10" Click="UpdateBook_Click"/>
+            
 
            <!-- Button to Update Book Stock -->
             <Button Content="Update Book Stock" Width="200" Height="50" Margin="10" Click="UpdateStock_Click"/>

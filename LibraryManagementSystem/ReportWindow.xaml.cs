@@ -38,12 +38,16 @@ namespace LibraryManagementSystem
         }
         private void TopMonth(object sender,RoutedEventArgs e)
         {
-
+            Top_Month top_Month = new();
+            top_Month.Show();
+            this.Close();
         }
 
-        private void TopYear(object sender, RoutedEventArgs e)
+        private void newAddRep(object sender, RoutedEventArgs e)
         {
-
+            RepNew repNew = new RepNew();   
+            repNew.Show();
+            this.Close();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

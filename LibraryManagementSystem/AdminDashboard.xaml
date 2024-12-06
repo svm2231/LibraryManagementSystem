@@ -9,7 +9,7 @@
                 <TextBlock Text="Admin Dashboard" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
                 <Button Content="Manage Books" Width="150" Margin="10" Click="ManageBooks_Click" />
                 <Button Content="Manage Users" Width="150" Margin="10" Click="ManageUsers_Click"/>
-                <Button Content="Transactions" Width="150" Margin="10"/>
+                <Button Content="Transactions" Width="150" Margin="10" Click="ManageTransactions_Click"/>
                 <Button Content="Logout" Width="150" Margin="10" Click="Logout_Click" />
             </StackPanel>
         </md:Card>
