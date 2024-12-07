@@ -36,7 +36,7 @@ namespace LibraryManagementSystem
             }
             string query1 = "SELECT memberID, firstname || ' ' || lastname as name, phonenumber FROM SHIV2_MEMBERS WHERE memberID=:p_memID";
 
-            string query2 = "SELECT bookID, title, borrowdate,duedate, fine from shiv2_borrow JOIN shiv2_books USING(bookid) WHERE memberID=:p_memID";
+            string query2 = "SELECT bookID, title, borrowdate,duedate, fine,sb.FINESTATUS as FINE_STATUS from shiv2_borrow sb JOIN shiv2_books USING(bookid) WHERE memberID=:p_memID UNION SELECT bookID, title, borrowdate,duedate, fine,sba.FINESTATUS AS FINE_STATUS from shiv2_borrow_ARCHIVE sba JOIN shiv2_books USING(bookid) WHERE memberID=:p_memID";
 
             string query3 = "SELECT NVL(SUM(FINE),0) AS totalFine from shiv2_borrow where memberID=:p_memID";
 

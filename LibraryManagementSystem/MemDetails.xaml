@@ -10,7 +10,7 @@
     <Grid Margin="0,0,0,-88">
         <md:Card Margin="20,20,20,-92">
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Width="404" Height="1000" Margin="0,93,0,0" >
-                <TextBlock Text="Submit Book" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
+                <TextBlock Text="Member etails" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
 
                 <TextBlock Text="Member ID" HorizontalAlignment="Center"/>
                 <TextBox Name="txtMemberID" Width="200" HorizontalAlignment="Center"/>
