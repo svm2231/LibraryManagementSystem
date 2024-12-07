@@ -43,7 +43,9 @@ namespace LibraryManagementSystem
         }
         private void Custom_Click(object sender, EventArgs e)
         {
-
+            CustTrans custTrans = new();
+            custTrans.Show();
+            this.Close();
         }
 
         private void MemTrans_Click(object sender, EventArgs e)

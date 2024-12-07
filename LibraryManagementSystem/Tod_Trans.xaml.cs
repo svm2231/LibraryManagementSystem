@@ -52,7 +52,7 @@ namespace LibraryManagementSystem
                             }
                             else
                             {
-                                MessageBox.Show("User Not found.", "Not Found", MessageBoxButton.OK, MessageBoxImage.Information);
+                                MessageBox.Show("No Transactions.", "Not Found", MessageBoxButton.OK, MessageBoxImage.Information);
                                 TodTransDataGrid.Visibility = Visibility.Collapsed;
                             }
                         }

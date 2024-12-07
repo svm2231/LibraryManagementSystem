@@ -804,19 +804,38 @@ ALTER TABLE shiv2_TRANSACTION
 DROP CONSTRAINT SYS_C00739902;
 
 
-CREATE OR REPLACE PROCEDURE InsertMem
+CREATE OR REPLACE PROCEDURE InsertMem1
 (
-    p_memID IN NUMBER,
     p_first IN VARCHAR2,
     p_last IN VARCHAR2,
     p_add IN VARCHAR2,
     p_phn IN VARCHAR2,
     p_email IN VARCHAR
 )
-AS
+IS
+    p_memID NUMBER;
+    p_trnsID NUMBER;
 BEGIN
-    
+    SELECT S_memID.nextval INTO p_memID FROM dual;
+    SELECT TRANS_ID.NEXTVAL INTO p_trnsID FROM DUAL;
     INSERT INTO shiv2_members(memberid,firstname,lastname,address,phonenumber,email,membershipdate,expirydate)
-    VALUES(p_memID,p_first,p_last,p_add,p_phn,p_email,sysdate,add_months(sysdate,12);
+    VALUES(p_memID,p_first,p_last,p_add,p_phn,p_email,sysdate,add_months(sysdate,12));
+    INSERT INTO SHIV2_TRANSACTION(TRANSACTIONID,MEMBERID,TRANSACTIONDATE,AMOUNT,TRANSACTIONTYPE,DESCRIPTION)
+    VALUES(p_trnsID,p_memID,sysdate,500,'Membership Fee','New Membership');
 END;
 /
+
+
+CREATE SEQUENCE S_memId
+    START WITH 200
+    INCREMENT BY 1;
+    
+    
+BEGIN
+    InsertMem1('Divyansh','Mogha','Dungrawli, Meerut', '+91 8101343387' ,'div@gmail.com');
+End;
+/
+
+SELECT * FROM SHIV2_MEMBERS where email='div@gmail.com';
+
+SELECT * FROM SHIV2_TRANSACTION WHERE TO_DATE(TRANSACTIONDATE,'YYYY-MM-DD') = TO_DATE(SYSDATE,'YYYY-MM-DD');

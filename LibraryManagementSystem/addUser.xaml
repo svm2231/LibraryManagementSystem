@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryManagementSystem"
         mc:Ignorable="d"
-        Title="addUser" Height="550" Width="800">
+        Title="Add User" Height="550" Width="800">
     <Grid>
         <StackPanel Margin="20">
             <TextBlock Text="First Name" Margin="0,0,0,5"/>
