@@ -37,7 +37,7 @@ namespace LibraryManagementSystem
                 using (var connection = DatabaseHelper.GetConnection())
                 {
                     connection.Open();
-                    //MessageBox.Show("Database connection successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Database connection successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)

@@ -839,3 +839,26 @@ End;
 SELECT * FROM SHIV2_MEMBERS where email='div@gmail.com';
 
 SELECT * FROM SHIV2_TRANSACTION WHERE TO_DATE(TRANSACTIONDATE,'YYYY-MM-DD') = TO_DATE(SYSDATE,'YYYY-MM-DD');
+
+
+ALTER TABLE SHIV2_BORROW
+ADD FINEstatus VARCHAR2(20) DEFAULT 'PAID' NOT NULL;
+
+UPDATE SHIV2_BORROW
+SET FINESTATUS='UNPAID';
+
+
+CREATE OR REPLACE TRIGGER BORROWARCHIVE
+AFTER DELETE ON shiv2_borrow
+FOR EACH ROW
+BEGIN
+    INSERT INTO SHIV2_BORROW_ARCHIVE(borrowID,bookid,memberid,borrowdate,duedate,returndate,fine,FINESTATUS) VALUES (:OLD.borrowid,:OLD.bookid,:OLD.memberid,:OLD.BORROWDATE,:OLD.DUEDATE,:OLD.RETURNDATE,:OLD.FINE,:OLD.FINESTATUS);
+END;
+/
+
+ALTER TABLE SHIV2_BORROW_ARCHIVE
+DROP COLUMN STATUS;
+
+SELECT bookID, title, borrowdate,duedate, fine,sb.FINESTATUS as FINE_STATUS from shiv2_borrow sb JOIN shiv2_books USING(bookid) WHERE memberID=45 UNION SELECT bookID, title, borrowdate,duedate, fine,sba.FINESTATUS AS FINE_STATUS from shiv2_borrow_ARCHIVE sba JOIN shiv2_books USING(bookid) WHERE memberID=45;
+
+SELECT bookID, title, borrowdate,duedate, fine,sb.FINESTATUS as FINE_STATUS from shiv2_borrow sb JOIN shiv2_books USING(bookid) WHERE memberID=:p_memID UNION SELECT bookID, title, borrowdate,duedate, fine,sba.FINESTATUS AS FINE_STATUS from shiv2_borrow_ARCHIVE sba JOIN shiv2_books USING(bookid) WHERE memberID=:p_memID
