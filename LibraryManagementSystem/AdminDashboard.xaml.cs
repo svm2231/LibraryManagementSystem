@@ -26,6 +26,10 @@ namespace LibraryManagementSystem
             InitializeComponent();
             this.conn = con;
         }
+        public AdminDashboard()
+        {
+            InitializeComponent();
+        }
 
         private void ManageBooks_Click(object sender, RoutedEventArgs e)
         {
