@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Oracle.ManagedDataAccess.Client;
 
 namespace LibraryManagementSystem
 {
@@ -19,9 +20,11 @@ namespace LibraryManagementSystem
     /// </summary>
     public partial class AdminDashboard : Window
     {
-        public AdminDashboard()
+        public OracleConnection conn;
+        public AdminDashboard(OracleConnection con)
         {
             InitializeComponent();
+            this.conn = con;
         }
 
         private void ManageBooks_Click(object sender, RoutedEventArgs e)
@@ -56,8 +59,10 @@ namespace LibraryManagementSystem
         {
             // Close the admin dashboard and open the login window again
             MainWindow loginWindow = new MainWindow();
+            this.conn.Close();
             loginWindow.Show();
             this.Close();
+
         }
     }
 }
